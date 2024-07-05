@@ -5,7 +5,12 @@ const CryptoJS=require("crypto-js")
 const mysqlPromise = require('mysql2/promise'); 
 
 const app = express()
-app.use(cors())
+app.use(cors({
+        orgin: ["https://technexmain.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials: true
+}
+))
 app.use(express.json())
 const pool=mysql2.createPool("mysql://root:JKUsPQzPRLEoURHkDoLvetuRPjKtaIVq@monorail.proxy.rlwy.net:23238/railway")
 
